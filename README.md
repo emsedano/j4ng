@@ -3,30 +3,66 @@
 > `@eliasmsedano` ([gmail.com](mailto:eliasmsedano@gmail.com), [linkedin.com](https://www.linkedin.com/in/eliasmsedano), [twitter.com](https://twitter.com/eliasmsedano))
 > `@eliasm` ([mx1.ibm.com](mailto:eliasm@mx1.ibm.com))
  ### Agenda
-  * **Prerequisites & first step (to create an ng app)**
-    * npm oooobviously
-    * @angular/cli
-  * Components
+  * Prerequisites & first step (to create an ng app)
+  * **Components**
+    * How to create them
+    * Structure
+    * Templating & styling
   * Data & event binding
   * Directives (very small talk)
   * Routing
   * Services
   * Deploying
   -------------------------------
-  ## Prerequisites
-  We only need `npm` (NodeJs comes implicitly) and `@angular/cli` and that should be enough so let's type
-  `npm i -g @angular/cli`
+  ## Understanding `@component`
+  We can think on them as the basic building blocks of your application
 
- ## The first steps (create a ng app) 
- With our just recently added friend `@angular/cli` we are just going to type in console
- ```shell
- ng new <appName>
- # other good options to start over
- ng new <appname> --style=scss --routing
- # it oviusly set scss for style instead of css and also 
- # enables the routing
+  #### How to create them
+> `ng generate component <[component/path/]component-name>`
+> e.g. `ng generate component home`
+
+> **for millenials ;)** `ng g c <millenial/way>`
+> `-it -is` another way, `ng g component home -it - is`
+
+
+  #### Structure
+ ```typescript
+ // The imports
+import { Component } from '@angular/core';
+// The decorator
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+// The actual component definition (where our magic resides)
+export class AppComponent {
+  title = 'app';
+}
  ```
- Once done just go and do `ng serve` and once it finishes
- > Just go to [localhost:4200](http://localhost:4200)
- > *type* `ng` *to see more options*
+#### Templating & styling
+```typescript
+// The angular way
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
 
+// The inline way
+@Component({
+  selector: 'app-root',
+  template: `
+   <div class="inline-templating">Hello I'm inline component</div>
+  `,
+  styles: [`
+  .inline-templating {
+    color: orange;
+  }
+  `]
+})
+```
+
+**Important points**
+* Global styles resides on `src/styles.scss`
+* Local styles only affects current component (and overrides globals)
