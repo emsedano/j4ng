@@ -25,6 +25,8 @@
 
   ### Data binding
   Bind a property to input controls
+  ![databinding](https://raw.githubusercontent.com/emsedano/j4ng/03-data-event-binding-complete/assets/databinding.png)
+
   ```javascript
    // Somewhere in the top of my component.../
    buttonText: string = 'Create note';
@@ -48,10 +50,17 @@
 
   > Note: inputs within `form` tags should include the `name` in conmbination to `ngModel`, this is because internally angular creates a `NgForm` and register the fields using the value of `name` attribute
 
+  ![component-databinding.png](https://raw.githubusercontent.com/emsedano/j4ng/03-data-event-binding-complete/assets/component-databinding.png)
+
   ### Events
   You can use Angular event bindings to respond to any [DOM event](https://www.w3schools.com/jsref/dom_obj_event.asp).
 
   ```html 
-  <a (click)="e => alert(e)">click me</a>
+  <a (click)="handleClick()">click me</a>
   ```
-  
+
+
+### Custom events
+Custom events are basically events emit in up way direction, and is the angular way to send data from child to parents. We achieve that by using the `@Output()` decorator assigned to a `EventEmitter` object.
+
+  ![component-databinding.png](https://raw.githubusercontent.com/emsedano/j4ng/03-data-event-binding-complete/assets/parent-child-binding.png)
