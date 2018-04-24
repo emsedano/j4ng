@@ -23,7 +23,11 @@
 ![databinding](https://raw.githubusercontent.com/emsedano/j4ng/03-data-event-binding-complete/assets/databinding.png)
 
   ### Data interpolation
-  To comunicate props to somewhere in the view, this is achieved in the following format palced in html `{{<propName>}}`
+  To comunicate props to somewhere in the view, this is achieved in the following format palced in html `{{<propName>}}` e.g.
+  ```html
+  <!--Will result in whatever aPropName has as value -->
+  <p>{{aPropName}}</p>
+  ```
 
   ### Data binding
   Bind a property to input controls
