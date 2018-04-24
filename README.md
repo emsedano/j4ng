@@ -6,30 +6,10 @@
   * Prerequisites & first step (to create an ng app)
   * Components
   * Data & event binding
-  * **Directives (very small talk)**
-    * Structural
-    * Attribute
-  * Routing
+  * Directives (very small talk)
+  * **Routing**
   * Services
   * Deploying
   -------------------------------
-  ## Directives
-  The facts:
-  * `@Component`s are technically `@Directive`s (Component extends from Directive)
-  * There are two kind of them `structural`& `attribute` directives
+  ## Routing
   
-  ### Structural directive
-  Alter layout by adding, removing, and replacing elements in DOM
-  ```html
-    <li *ngFor="let hero of heroes"></li>
-    <app-hero-detail *ngIf="selectedHero"></app-hero-detail>
-    <!-- *ngSwitchCase -->
-  ```
-  We can identify them because the `*` prefixed
-  ### Attribute directive
-  Alter the appearance or behavior of an existing element. (normally are within brackets but is not a rule)
-  ```html
-  <input [(ngModel)]="hero.name"/>
-  <div [ngStyle]="currentStyles">
-  <div [ngClass]="currentClasses">This div is initially saveable, unchanged, and special</div>
-  ```
