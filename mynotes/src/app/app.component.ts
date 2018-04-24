@@ -8,5 +8,15 @@ import { Component } from '@angular/core';
 })
 // The actual component definition (where our magic resides)
 export class AppComponent {
-  title = 'app';
+  title = 'app coming from parent';
+  clickMe($event: any): void {
+    alert('hi there events');
+    console.log($event);
+  }
+
+  handleUpdateAppTitle(event: any): void {
+    console.log('received on parent');
+    this.title = event;
+  }
+
 }
