@@ -28,3 +28,4 @@ providers: [<YourImportedServide>]
 **Sharing data between components**
 
 One good (and most used way) is to user Subjects (which also are Observables)
+Recomended : `BehaviorSubject` it saves the last state (but needs to be initialized the first one)
