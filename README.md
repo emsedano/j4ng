@@ -15,13 +15,16 @@
 Services are commonly used to fetch data from http resources, and/or sharing data between components.
 
 **`@Injectable` decorator**
+
 `ng create service <path/service>`
 
 **Provide**
+
 ```typescript
 //...
 providers: [<YourImportedServide>]
 //
 ```
 **Sharing data between components**
+
 One good (and most used way) is to user Subjects (which also are Observables)
