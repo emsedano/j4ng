@@ -51,12 +51,12 @@
    **templating**
    styles.scss
    ```css
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700');
 
 body {
- background:rgb(230, 120, 46);
+ background:rgb(88, 88, 88);
  padding: 3em;
- font-family: 'Raleway', 'Arial';
+ font-family: 'IBM Plex Mono', monospace;
  color:#fff;
 }
 ul {
@@ -75,6 +75,7 @@ a {
  color:#fff;
  text-decoration:none;
 }
+
 
 ```
 
@@ -125,8 +126,5 @@ input.btn {
     font-weight: bold;
   }
 }
-
-
-
 
 ```
