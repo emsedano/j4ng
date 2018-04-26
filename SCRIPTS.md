@@ -51,12 +51,12 @@
    **templating**
    styles.scss
    ```css
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono:300,700');
 
 body {
- background:rgb(230, 120, 46);
+ background:rgb(88, 88, 88);
  padding: 3em;
- font-family: 'Raleway', 'Arial';
+ font-family: 'IBM Plex Mono', monospace;
  color:#fff;
 }
 ul {
@@ -76,6 +76,7 @@ a {
  text-decoration:none;
 }
 
+
 ```
 
 home.scss
@@ -88,13 +89,13 @@ home.scss
   padding: .4em 1.3em;
 }
 .color-dark {
-  background: rgb(196, 110, 40);
+  background: rgb(61, 61, 61);
 }
 .color-light {
-  background: rgb(241, 174, 87);
+  background: rgb(143, 143, 143);
 }
 
-input.txt {
+input.txt, textarea {
   border: 0;
   padding: 1em;
   width: 80%;
@@ -104,16 +105,55 @@ input.btn {
   border: 0;
   display:block;
   padding:1em 3em;
-  background:rgb(246, 248, 131);
-  color:#003A61;
+  background:rgb(63, 121, 245);
+  color: white;
   margin-bottom:1em;
   cursor:pointer;
 }
 .life-container {
-  background: rgb(196, 110, 40);
+  background: rgb(61, 61, 61);
   padding:.5em;
   font-weight:bold;
   cursor:pointer;
 }
 
+.preview {
+  margin: 10px;
+  padding: 10px;
+  color: black;
+  background-color: white;
+  p {
+    font-weight: bold;
+  }
+}
+
+```
+
+**Services**
+```html
+<div>
+  <h2>Notes</h2>
+  <input type="text" class="text" (ngModelChange)="filterNotes($event)" placeholder="Search" [(ngModel)]="qryStr"/>
+  {{qryStr}}
+  <div *ngFor="let note of filteredNotes">
+      <div class="preview">
+          <span>Title: <strong>{{ note.title }}</strong></span>
+          <p>Content:</p>
+          <pre>{{ note.text }}</pre>
+      </div>
+      <hr>
+  </div>
+</div>
+```
+```typescript
+// note.component.ts
+filterNotes(qryStr) {
+    qryStr = qryStr.toLowerCase();
+    this.filteredNotes = this.notes.filter(this.byTitleAndText.bind(this, qryStr));
+  }
+
+  private byTitleAndText(qry, note) {
+    return (note.title.toLowerCase().indexOf(qry) > -1
+    || note.text.toLowerCase().indexOf(qry) > -1);
+  }
 ```
