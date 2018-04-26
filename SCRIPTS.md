@@ -128,3 +128,32 @@ input.btn {
 }
 
 ```
+
+**Services**
+```html
+<div>
+  <h2>Notes</h2>
+  <input type="text" class="text" (ngModelChange)="filterNotes($event)" placeholder="Search" [(ngModel)]="qryStr"/>
+  {{qryStr}}
+  <div *ngFor="let note of filteredNotes">
+      <div class="preview">
+          <span>Title: <strong>{{ note.title }}</strong></span>
+          <p>Content:</p>
+          <pre>{{ note.text }}</pre>
+      </div>
+      <hr>
+  </div>
+</div>
+```
+```typescript
+// note.component.ts
+filterNotes(qryStr) {
+    qryStr = qryStr.toLowerCase();
+    this.filteredNotes = this.notes.filter(this.byTitleAndText.bind(this, qryStr));
+  }
+
+  private byTitleAndText(qry, note) {
+    return (note.title.toLowerCase().indexOf(qry) > -1
+    || note.text.toLowerCase().indexOf(qry) > -1);
+  }
+```
