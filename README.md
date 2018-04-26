@@ -5,27 +5,16 @@
 * Data & event binding
 * Directives (very small talk)
 * Routing
-* **Services**
-  * **`@Injectable` decorator**
-  * **Provide**
-  * **Sharing data between components**
-* Deploying
+* Services
+* **Deploying**
 -------------------------------
+**Dont forget --prod**
+Compare sizes betweeen 
+`ng build` vs `ng build --prod`
+Just find a way to serve the file
 
-Services are commonly used to fetch data from http resources, and/or sharing data between components.
+**Extra: Deploy on github**
 
-**`@Injectable` decorator**
-
-`ng create service <path/service>`
-
-**Provide**
-
-```typescript
-//...
-providers: [<YourImportedServide>]
-//
-```
-**Sharing data between components**
-
-One good (and most used way) is to user Subjects (which also are Observables)
-Recomended : `BehaviorSubject` it saves the last state (but needs to be initialized the first one)
+1) Install angular-cli-ghpages
+2) `ng build --prod --base-ref="https://emsedano.github.io/j4ng"`
+3) `angular-cli-ghpages`

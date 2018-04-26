@@ -9,7 +9,6 @@
 <div>
   <h2>Notes</h2>
   <input type="text" class="text" (ngModelChange)="filterNotes($event)" placeholder="Search" [(ngModel)]="qryStr"/>
-  {{qryStr}}
   <div *ngFor="let note of filteredNotes">
       <div class="preview">
           <span>Title: <strong>{{ note.title }}</strong></span>

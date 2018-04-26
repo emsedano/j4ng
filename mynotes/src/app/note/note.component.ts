@@ -10,6 +10,7 @@ export class NoteComponent implements OnInit {
   display: boolean = false;
   currentClasses: any = {};
   currentNote: number;
+  qryStr: string;
   notes: any;
   filteredNotes: any;
   constructor(private route: ActivatedRoute, private _data:  NoteService) {
