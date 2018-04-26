@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-note',
@@ -8,7 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class NoteComponent implements OnInit {
   display: boolean = false;
   currentClasses: any = {};
-  constructor() { }
+  currentNote: number;
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe(data => this.currentNote = data.id);
+  }
 
   ngOnInit() {
     this.currentClasses  = {
