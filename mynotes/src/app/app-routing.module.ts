@@ -8,7 +8,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'note',
+    path: 'note/:id',
     component: NoteComponent
   }
 ];
